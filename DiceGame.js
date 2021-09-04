@@ -2,13 +2,19 @@
 let dice = [1,2,3,4,5,6]
 
 //สร้าง object ผู้เล่น 2 คน (score ใช้เพื่อการเปรียบเทียบผู้ชนะ)
-let player1 = {name: "player1", score: 0, diceValue: []}
-let player2 = {name: "player2", score: 0, diceValue: []}
+let player1 = {name: "player1", score: 0, diceValue: [],p1result :[]}
+let player2 = {name: "player2", score: 0, diceValue: [],p2result :[]}
 
 //ใส่จำนวนรอบที่ต้องการเล่น
 console.log(play(3))
+
+// บันทึกประวัติการทอยลูกเต๋า
 console.log(player1.diceValue)
 console.log(player2.diceValue)
+
+// บันทึกประวัคิ ผลลัพธ์ของการทอยลูกเต๋าด้วยการ แพ้ ชนะ เสมอ
+console.log(player1.p1result)
+console.log(player2.p2result)
 
 //loop ในการเล่นทุกรอบ จะไปทอยลูกเต๋า และเปรียบเทียบผู้เล่นที่ชนะแต่ละรอบ
 //สุดท้ายคือเทียบว่าใครชนะทั้งเกม
@@ -31,18 +37,25 @@ function roll(i){
     
 }
 
-//เอาค่าลูกเต๋าที่ทอยได้มาเปรียบเทียบกัน แล้ว return String บอกคนชนะ คนแพ้
+// เอาค่าลูกเต๋าที่ทอยได้มาเปรียบเทียบกัน แล้ว return String บอกคนชนะ คนแพ้
 // มีการเก็บค่า score เพิ่มครั้งละ 1 เพื่อไปใช้ในการเปรียบเทียบว่าคนที่ชนะมากที่สุด
+// มีการเก็บว่ารอบไหนชนะหรือแพ้ ลงใน player1.p1resultหรือplayer2.p2result
 // ในทุกรอบคือคนไหน
 function whoWin(i){
     let result = ""
     if(player1.diceValue[i] > player2.diceValue[i]) {
         player1.score+=1
+        player1.p1result[i]="Win"
+        player2.p2result[i]="Lose"
         return result = `${player1.name} : ${player1.diceValue[i]} win!\n${player2.name} : ${player2.diceValue[i]} lose!`
     } else if (player1.diceValue[i] < player2.diceValue[i]){
         player2.score+=1
+        player1.p1result[i]="Lose"
+        player2.p2result[i]="Win"
         return result = `${player1.name} : ${player1.diceValue[i]} lose!\n${player2.name} : ${player2.diceValue[i]} win!`
     } else {
+        player1.p1result[i]="Draw"
+        player2.p2result[i]="Draw"
         return result = `${player1.name} : ${player1.diceValue[i]}\n${player2.name} : ${player2.diceValue[i]}\ndraw!`
     }
 }
