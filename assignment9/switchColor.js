@@ -39,6 +39,7 @@ export function save() {
   let getAmountColor = localStorage.getItem("amountColor");
   let getTheme = localStorage.getItem("theme");
 
+  //เช็คว่า เก็บสีพื้นหลังบน local storage หรือยัง 
   if(getBgColor!=null){
   //เอา value ที่ได้มาเปลี่ยนตามที่ user เลือกล่าสุด
   document.body.style.backgroundColor = getBgColor;
@@ -46,6 +47,7 @@ export function save() {
   document.getElementById("num").style.color = getAmountColor;
   document.getElementById("theme").src = getTheme;
   }else{
+    //ถ้าไม่เก็บก็จะกำหนดค่าเริ่มต้นให้สีพื้นหลัง theme เป็นสีขาว
     document.body.style.backgroundColor = "white";
     document.getElementById("h1").style.color = "black";
     document.getElementById("num").style.color = "black";
