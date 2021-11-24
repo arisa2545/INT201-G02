@@ -1,17 +1,5 @@
 import { colImg } from "./searchProduct.js";
 
-export function init() {
-  let bgcolor = (document.body.style.backgroundColor = "#424242");
-  let h1 = (document.getElementById("h1").style.color = "white");
-  let num = (document.getElementById("num").style.color = "white");
-  colImg.setAttribute("src", "image/light.png");
-
-  localStorage.setItem("BG", bgcolor);
-  localStorage.setItem("fontColor", h1);
-  localStorage.setItem("amountColor", num);
-  localStorage.setItem("theme", colImg.src);
-}
-
 //function นี้ไว้สําหรับการเปลี่ยนโหมดโดยถ้ามันเป็นพื้นหลังสีสว่างอยู่เมื่อ function นี้ทํางานมันจะเปลี่ยนเป็นพื้นหลังสีมืด
 //รวมถึงตัวหนังสือหัวข้อเเละเลขสินค้าที่อยู่ในตะกร้าขณะนั้นก็จะเปลี่ยนเป็นสีขาว เเละ colImg ก็จะเปลี่ยนเป็นรูปสีขาวเเทน
 //สร้าง local storage ไว้เก็บสี background, สีของหัวข้อ, สีของเลขจํานวนสินค้าเเละ colImg
@@ -51,9 +39,16 @@ export function save() {
   let getAmountColor = localStorage.getItem("amountColor");
   let getTheme = localStorage.getItem("theme");
 
+  if(getBgColor!=null){
   //เอา value ที่ได้มาเปลี่ยนตามที่ user เลือกล่าสุด
   document.body.style.backgroundColor = getBgColor;
   document.getElementById("h1").style.color = getFontColor;
   document.getElementById("num").style.color = getAmountColor;
   document.getElementById("theme").src = getTheme;
+  }else{
+    document.body.style.backgroundColor = "white";
+    document.getElementById("h1").style.color = "black";
+    document.getElementById("num").style.color = "black";
+    document.getElementById("theme").src = "image/dark.png";
+  }
 }
