@@ -7,9 +7,6 @@ import { init, switchMode, save } from "./switchColor.js";
 //สร้าง object ของ cart เก็บสินค้าที่เพิ่มเข้ามาในตะกร้า
 export let carts = { items: [], itemId: [], totalQty: 0 };
 
-//เเสดงรายการสินค้าทั้งหมด
-showProduct(car);
-
 //เลือก div ที่มี id searchCart มาจากหน้า index
 const divSearchCartEle = document.querySelector("#searchCart");
 
@@ -141,6 +138,7 @@ let toggle = true;
 searchIcon.addEventListener("click", () => {
   toggle = !toggle;
   showSearchBar();
+  
 });
 
 //function นี้ ไว้สําหรับซ่อนเเละเเสดงช่องค้นหาเเละปุ่ม button
