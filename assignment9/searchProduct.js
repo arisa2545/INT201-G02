@@ -142,4 +142,4 @@ if (CookieUtil.get("Cart") != null) {
   quantity.textContent = carts.totalQty;
 }
 
-save(); //เปลี่ยนสีเมื่อไปกดแล้วเกิด event
+save(); //กำหนดสี และเปลี่ยนสีเมื่อไปกดแล้วเกิด event
