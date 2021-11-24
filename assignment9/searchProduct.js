@@ -8,7 +8,7 @@ import { init, switchMode, save } from "./switchColor.js";
 export let carts = { items: [], itemId: [], totalQty: 0 };
 
 //เเสดงรายการสินค้าทั้งหมด
-showProduct(car);
+//showProduct(car);
 
 //เลือก div ที่มี id searchCart มาจากหน้า index
 const divSearchCartEle = document.querySelector("#searchCart");
@@ -22,14 +22,7 @@ spanCart.setAttribute("style", "float: right;");
 
 //สร้าง img element ชื่อ colImg โดยกําหนดไอดีชื่อว่า theme
 export const colImg = document.createElement("img");
-// // let bgcolor = document.body.style.backgroundColor = "white";
-// // let h1 = document.getElementById("h1").style.color = "black";
-// // let num = document.getElementById("num").style.color = "black";
-// themeColor.setAttribute("src", "image/dark.png");
-// localStorage.setItem("BG", bgcolor);
-// localStorage.setItem("fontColor", h1);
-// localStorage.setItem("amountColor", num);
-// localStorage.setItem("theme", colImg.src);
+
 colImg.setAttribute("id", "theme");
 colImg.setAttribute("src", "image/dark.png");
 colImg.setAttribute("height", "30px");
@@ -37,38 +30,6 @@ colImg.setAttribute("width", "30px");
 colImg.addEventListener("click", switchMode);
 
 spanCart.appendChild(colImg);
-
-//function นี้ไว้สําหรับการเปลี่ยนโหมดโดยถ้ามันเป็นพื้นหลังสีสว่างอยู่เมื่อ function นี้ทํางานมันจะเปลี่ยนเป็นพื้นหลังสีมืด
-//รวมถึงตัวหนังสือหัวข้อเเละเลขสินค้าที่อยู่ในตะกร้าขณะนั้นก็จะเปลี่ยนเป็นสีขาว เเละ colImg ก็จะเปลี่ยนเป็นรูปสีขาวเเทน
-//สร้าง local storage ไว้เก็บสี background, สีของหัวข้อ, สีของเลขจํานวนสินค้าเเละ colImg
-//เเต่ถ้าขณะนั้นเป็นพื้นหลังสีมืดอยู่เมื่อ function นี้ทํางานมันจะเปลี่ยนเป็นพื้นหลังสีสว่าง การทํางานข้างใน elseก็จะคล้ายๆ if
-//เเต่ว่าจะเเตกต่างที่สีที่นํามาเเสดงผลเเละสีที่นําไปเก็บใน local storage
-// function switchMode() {
-//     if(document.body.style.backgroundColor=="white") {
-//         alert(`change to dark`)
-//         let bgcolor = document.body.style.backgroundColor = "#424242";
-//         let h1 = document.getElementById("h1").style.color = "white";
-//         let num = document.getElementById("num").style.color = "white";
-//         colImg.setAttribute("src","image/light.png")
-
-//         localStorage.setItem("BG", bgcolor)
-//         localStorage.setItem("fontColor", h1)
-//         localStorage.setItem("amountColor", num)
-//         localStorage.setItem("theme", colImg.src)
-
-//     }else{
-//         alert(`change to light`)
-//         let bgcolor = document.body.style.backgroundColor = "white";
-//         let h1 = document.getElementById("h1").style.color = "black";
-//         let num = document.getElementById("num").style.color = "black";
-//         colImg.setAttribute("src","image/dark.png")
-
-//         localStorage.setItem("BG", bgcolor);
-//         localStorage.setItem("fontColor", h1)
-//         localStorage.setItem("amountColor", num)
-//         localStorage.setItem("theme", colImg.src)
-//     }
-// }
 
 //สร้าง image element ชื่อ searchIcon นํารูปมาใส่ กําหนดขนาดรูป
 const searchIcon = document.createElement("img");
@@ -97,18 +58,6 @@ bin.setAttribute("id", "clear");
 bin.setAttribute("height", "35px");
 bin.setAttribute("width", "35px");
 
-//เมื่อกดที่ bin เเล้ว จะมี alert เด้งขึ้นมาเเจ้งเตือนว่าจะทําการลบสินค้าออกจากตะกร้าหรือไม่
-//ถ้าคลิกตกลงมันจะลบสินค้าทั้งหมดที่อยู่ในตะกร้าเเละเเสดงจํานวนสินค้าในตะกร้าเป็น 0
-// function clearCart() {
-//     alert('click ok to clear all of carts')
-//     carts = {items: [], itemId: [] , totalQty: 0};
-//     const amount = document.querySelector('#num');
-//     amount.textContent = 0;
-//     console.log(carts)
-//  console.log(carts)
-//     //ให้มันไปลบ cookies ที่ชื่อ Cart เมื่อลบสินค้า
-//     CookieUtil.unset("Cart");
-// }
 bin.addEventListener("click", () => clearCart(carts));
 
 // appendChild ให้มัน
