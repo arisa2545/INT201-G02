@@ -2,13 +2,13 @@ import { car } from "./carList.js";
 import { showProduct } from "./showProduct.js";
 import { CookieUtil } from "./cookies.js";
 import { clearCart } from "./clearCart.js";
-import { init, switchMode, save } from "./switchColor.js";
+import { switchMode, save } from "./switchColor.js";
 
 //สร้าง object ของ cart เก็บสินค้าที่เพิ่มเข้ามาในตะกร้า
 export let carts = { items: [], itemId: [], totalQty: 0 };
 
 //เเสดงรายการสินค้าทั้งหมด
-//showProduct(car);
+// showProduct(car);
 
 //เลือก div ที่มี id searchCart มาจากหน้า index
 const divSearchCartEle = document.querySelector("#searchCart");
@@ -58,6 +58,7 @@ bin.setAttribute("id", "clear");
 bin.setAttribute("height", "35px");
 bin.setAttribute("width", "35px");
 
+//สร้าง event ให้กับbin เมื่อคลิกที่รูปภาพมันจะไปทํา function clearCart
 bin.addEventListener("click", () => clearCart(carts));
 
 // appendChild ให้มัน
@@ -90,7 +91,6 @@ let toggle = true;
 searchIcon.addEventListener("click", () => {
   toggle = !toggle;
   showSearchBar();
-  
 });
 
 //function นี้ ไว้สําหรับซ่อนเเละเเสดงช่องค้นหาเเละปุ่ม button
@@ -142,8 +142,4 @@ if (CookieUtil.get("Cart") != null) {
   quantity.textContent = carts.totalQty;
 }
 
-init(); //กำหนดค่าเริ่มต้นของสีพื้นหลังเวลาเปิดเว็ปไซต์
 save(); //เปลี่ยนสีเมื่อไปกดแล้วเกิด event
-
-
-
