@@ -4,11 +4,16 @@ import { CookieUtil } from "./cookies.js";
 //ถ้าคลิกตกลงมันจะลบสินค้าทั้งหมดที่อยู่ในตะกร้าเเละเเสดงจํานวนสินค้าในตะกร้าเป็น 0
 export function clearCart(carts) {
     alert('click ok to clear all of carts')
-    carts = {items: [], itemId: [] , totalQty: 0};
+    console.log(carts)
+    // carts = {items: [], itemId: [] , totalQty: 0};
+    carts.items = [];
+    carts.itemId = [];
+    carts.totalQty = 0;
     const amount = document.querySelector('#num');
     amount.textContent = 0;
     console.log(carts)
 
     //ให้มันไปลบ cookies ที่ชื่อ Cart เมื่อลบสินค้า
     CookieUtil.unset("Cart");
+    
 }
